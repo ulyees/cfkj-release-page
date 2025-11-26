@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>晨风科技 | 尊享导航</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Cinzel:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'royal-black': '#050505',
+                        'royal-dark': '#0F0F0F',
+                        'luxury-gold': '#D4AF37',     /* 纯正香槟金 */
+                        'luxury-gold-dim': '#8A7120', /* 暗金 */
+                        'luxury-red': '#720e1e',      /* 封蜡红 */
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', 'serif'],
+                        eng: ['"Cinzel"', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'], /* 用于数字对齐 */
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            /* 添加噪点纹理，增加纸张质感 */
+            background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #050505 80%), var(--tw-bg-noise);
+        }
+
+        /* 金色渐变文字 */
+        .text-gradient-gold {
+            background: linear-gradient(to bottom, #F3E5AB, #D4AF37, #996515);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* 玻璃拟态卡片 */
+        .glass-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+        }
+
+        /* 按钮流光动画 */
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .btn-royal {
+            background: linear-gradient(90deg, #8A7120, #D4AF37, #F3E5AB, #D4AF37, #8A7120);
+            background-size: 200% auto;
+            animation: flow 4s linear infinite;
+        }
+
+        /* 解决数字跳动问题：强制数字等宽 */
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: "tnum";
+            letter-spacing: 0px;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden font-serif antialiased selection:bg-luxury-gold selection:text-black">
+
+<div class="fixed top-0 left-0 w-full h-1/2 bg-gradient-to-b from-luxury-gold/5 to-transparent pointer-events-none"></div>
+
+<main class="relative w-full max-w-sm mx-auto z-10 animate__animated animate__fadeInUp animate__fast">
+
+    <div class="text-center mb-8 relative">
+        <div class="flex items-center justify-center gap-4 opacity-80 mb-2">
+            <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-luxury-gold"></div>
+            <i class="fa-solid fa-crown text-luxury-gold text-xl drop-shadow-md"></i>
+            <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-luxury-gold"></div>
+        </div>
+
+        <h1 class="text-3xl font-black tracking-widest text-gradient-gold mb-1">晨风科技</h1>
+        <p class="font-eng text-[10px] text-luxury-gold-dim tracking-[0.3em] uppercase">Private & Exclusive</p>
+    </div>
+
+    <div class="glass-card rounded-xl p-6 relative group overflow-hidden">
+        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-luxury-gold/30 rounded-tl-lg"></div>
+        <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-luxury-gold/30 rounded-tr-lg"></div>
+        <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-luxury-gold/30 rounded-bl-lg"></div>
+        <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-luxury-gold/30 rounded-br-lg"></div>
+
+        <div class="space-y-3 mb-8">
+            <div class="flex items-center gap-3 p-3 rounded bg-white/5 border border-white/5">
+                <div class="w-8 h-8 flex items-center justify-center rounded-full bg-luxury-red/20 text-luxury-red shrink-0">
+                    <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+                </div>
+                <div class="flex-1 text-xs text-gray-400 leading-relaxed">
+                    由于网络环境波动，<br>本站发布页地址可能会发生变更。
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded bg-white/5 border border-white/5 cursor-pointer active:scale-95 transition-transform" onclick="copyUrl()">
+                <div class="w-8 h-8 flex items-center justify-center rounded-full bg-luxury-gold/20 text-luxury-gold shrink-0">
+                    <i class="fa-solid fa-floppy-disk text-xs"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="text-xs text-luxury-gold font-bold">请保存此永久导航页</div>
+                    <div class="text-[10px] text-gray-500 mt-0.5">点击即可复制当前网址</div>
+                </div>
+                <i class="fa-regular fa-copy text-gray-600 text-xs"></i>
+            </div>
+        </div>
+
+        <a href="#" class="block w-full relative group mb-8">
+            <div class="absolute -inset-1 bg-luxury-gold rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            <button class="relative w-full btn-royal py-4 rounded-lg shadow-2xl text-royal-black font-bold text-lg tracking-widest flex items-center justify-center gap-3 active:scale-[0.98] transition-transform">
+                <span>进入官网</span>
+                <i class="fa-solid fa-arrow-right-long opacity-70"></i>
+            </button>
+        </a>
+
+        <div class="border-t border-luxury-gold/10 pt-5">
+            <div class="grid grid-cols-[auto_1fr] gap-y-3 gap-x-4 text-xs">
+
+                <div class="text-gray-500 flex items-center gap-2">
+                    <i class="fa-solid fa-server w-3 text-center"></i> 状态
+                </div>
+                <div class="text-right text-green-500 font-bold flex items-center justify-end gap-1.5">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                    服务正常
+                </div>
+
+                <div class="text-gray-500 flex items-center gap-2">
+                    <i class="fa-regular fa-clock w-3 text-center"></i> 时间
+                </div>
+                <div class="text-right text-luxury-gold font-mono tabular-nums" id="clock">
+                    00:00:00
+                </div>
+
+                <div class="text-gray-500 flex items-center gap-2">
+                    <i class="fa-solid fa-stopwatch w-3 text-center"></i> 运行
+                </div>
+                <div class="text-right text-gray-300 font-mono tabular-nums" id="uptime">
+                    计算中...
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-8 text-center opacity-30">
+        <p class="font-eng text-[10px] tracking-widest">&copy; 2025 CHENFENG TECHNOLOGY</p>
+    </footer>
+
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-luxury-gold text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex items-center gap-2">
+        <i class="fa-solid fa-check-circle"></i> 网址已复制
+    </div>
+
+</main>
+
+<script>
+    // --- 逻辑部分 ---
+
+    // 1. 复制网址功能 (增强移动端体验)
+    function copyUrl() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            showToast();
+        }).catch(err => {
+            console.error('无法复制', err);
+        });
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.remove('opacity-0');
+        setTimeout(() => {
+            toast.classList.add('opacity-0');
+        }, 2000);
+    }
+
+    // 2. 时钟更新 (使用 requestAnimationFrame 保证流畅)
+    function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('zh-CN', { hour12: false });
+        document.getElementById('clock').innerText = timeString;
+
+        updateUptime(now);
+        requestAnimationFrame(updateClock);
+    }
+
+    // 3. 运行时间计算
+    const startTime = new Date('2025-11-25T00:00:00').getTime();
+
+    function updateUptime(now) {
+        const diff = now.getTime() - startTime;
+
+        if (diff < 0) {
+            document.getElementById('uptime').innerText = "Wait Start";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // 补零逻辑，保持对齐美观
+        const h = hours.toString().padStart(2, '0');
+        const m = minutes.toString().padStart(2, '0');
+        const s = seconds.toString().padStart(2, '0');
+
+        document.getElementById('uptime').innerText = `${days}天 ${h}时${m}分${s}秒`;
+    }
+
+    // 启动
+    requestAnimationFrame(updateClock);
+
+</script>
+</body>
+</html>
